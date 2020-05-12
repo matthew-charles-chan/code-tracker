@@ -1,6 +1,13 @@
 require('dotenv').config()
 
 const axios = require('axios')
+// const GitHub = require('github-api')
+// const gh = new GitHub({
+//   username: process.env.USERNAME,
+//   password: process.env.PASSWORD,
+//   token: process.env.TOKEN
+// })
+
 
 
 const URL = 'https://api.github.com'
