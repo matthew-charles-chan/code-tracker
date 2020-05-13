@@ -2,5 +2,13 @@ import React from "react";
 
 export default function Commit(props) {
   console.log(props);
-  return <li>{props.commit.message}</li>;
+  return (
+    <li>
+      <h3>{props.commit.repo.split("/")[1]}</h3>
+      <ul>
+        <li>Date: {props.commit.date}</li>
+        <li>Message: {props.commit.message}</li>
+      </ul>
+    </li>
+  );
 }
