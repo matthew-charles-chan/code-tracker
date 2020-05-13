@@ -1,24 +1,8 @@
 require('dotenv').config()
 
 const axios = require('axios')
-// const GitHub = require('github-api')
-// const gh = new GitHub({
-//   username: process.env.USERNAME,
-//   password: process.env.PASSWORD,
-//   token: process.env.TOKEN
-// })
-
-
 
 const URL = 'https://api.github.com'
-
-
-// const getRepoNames = async () => {
-//   const response = await user.listRepos()
-//   return response.data.map((repo) => {
-//     return repo.name
-//   })
-// }
 
 const getCommits = async () => {
   try {
