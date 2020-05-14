@@ -1,6 +1,5 @@
 import React from 'react';
 import {useEffect, useState} from 'react'
-// import axios from 'axios';
 import CommitsList from './components/CommitsList'
 import getCommits from './helpers/githubGets'
 
@@ -11,7 +10,6 @@ function App() {
   useEffect(() => {
     getCommits()
     .then(res => {
-      console.log(res)
       setCommits(res)
     })
   }, [])

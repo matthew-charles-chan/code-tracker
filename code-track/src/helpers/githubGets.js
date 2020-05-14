@@ -8,7 +8,7 @@ export default async function getCommits() {
       return event.type === 'PushEvent'
     }).map((commit) => {
       return {
-        date: commit.created_at,
+        date: new Date(commit.created_at),
         repo: commit.repo.name,
         message: commit.payload.commits[0].message
       }
