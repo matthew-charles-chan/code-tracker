@@ -21,6 +21,7 @@ function App() {
         console.log(res)
       })
   }, [])
+  
   return (
     <div className="App">
       <CommitsList commits={commits} />
