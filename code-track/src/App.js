@@ -13,6 +13,7 @@ function App() {
       setCommits(res)
     })
   }, [])
+  
   return (
     <div className="App">
       <CommitsList commits={commits} />
