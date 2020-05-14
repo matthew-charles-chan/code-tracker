@@ -1,7 +1,6 @@
 import Commit from "./Commit";
 import React from "react";
 export default function List(props) {
-  console.log(props);
   return (
     <section>
       <h1>Recent Commits:</h1>
