@@ -1,8 +1,7 @@
 const axios = require('axios')
 const URL = 'https://api.github.com'
 
-
-async function getCommits(user) {
+const getCommits = async (user) => {
   try {
     const {data} = await axios.get(`${URL}/users/${user}/events`);
     return data.filter(event => { 
@@ -19,26 +18,23 @@ async function getCommits(user) {
   }
 }
 
-
-function addDays(unixDate, days) {
-  let jsDate = new Date(unixDate);
-  jsDate.setDate(jsDate.getDate() + days);
-  return jsDate
+const addUTCDays = (unixDate, days) => {
+  const date = (new Date(unixDate * 1000))
+  date.setDate(date.getUTCDate() + days)
+  return date
 }
 
-async function getRepoCommits(user, repo) {
-
+const getRepoCommits = async (user, repo) => {
   try {
     const {data} = await axios.get(`${URL}/repos/${user}/${repo}/stats/commit_activity`);
     const activeWeeks =  data.filter(week => {
       return week.total > 0
     })
-    
     const formattedWeeks = activeWeeks.map((week) => {
       const formattedWeek = []
       for (let i = 0; i < week.days.length; i ++) {
         formattedWeek.push({
-          date: addDays(week.week, i),
+          date: addUTCDays(week.week, i),
           count: week.days[i]
         })
       }

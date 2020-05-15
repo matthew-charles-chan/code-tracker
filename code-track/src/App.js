@@ -11,7 +11,7 @@ function App() {
   // const [user, setUser] = useState('')
 
   useEffect(() => {
-    const repo = 'Light-Invite'
+    const repo = 'code-tracker'
     getCommits(USER)
     .then(res => {
       setCommits(res)
