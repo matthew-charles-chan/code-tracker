@@ -40,7 +40,7 @@ const getRepoCommits = async (user, repo) => {
       }
       return formattedWeek
     })
-    return formattedWeeks
+    return {name: repo, weeks: formattedWeeks}
   } catch(err) {
     console.log(err)
   }

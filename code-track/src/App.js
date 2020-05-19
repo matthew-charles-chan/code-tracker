@@ -1,6 +1,7 @@
 import React from 'react';
 import {useEffect, useState} from 'react'
 import CommitsList from './components/CommitsList'
+import Repo from './components/Repo'
 import {getCommits, getRepoCommits} from './helpers/githubGets'
 
 require('dotenv').config();
@@ -8,6 +9,7 @@ const USER = process.env.REACT_APP_USER
 function App() {
 
   const [commits, setCommits] = useState([])
+  const [repoActivity, setRepoActivity] = useState([])
   // const [user, setUser] = useState('')
 
   useEffect(() => {
@@ -18,13 +20,14 @@ function App() {
     })
     getRepoCommits(USER, repo)
       .then((res) =>  {
-        console.log(res)
+        setRepoActivity(res)
       })
   }, [])
   
   return (
     <div className="App">
       <CommitsList commits={commits} />
+      <Repo repo={repoActivity}/>
     </div>
   );
 }
